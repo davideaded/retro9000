@@ -1,5 +1,8 @@
-function getAllGames() {
-    return;
+const db = require("../db/db");
+
+async function getAllGames(req, res) {
+    const games = await db.getAll("games");
+    console.log(games);
 }
 
 function getGameById(_req, _res, id) {
