@@ -1,19 +1,16 @@
+const asyncHandler = require("express-async-handler");
 const db = require("../db/db");
 
-async function getAllGames(req, res) {
+const getAllGames = asyncHandler(async(_req, res) => {
     const games = await db.getAll("games");
-    console.log(games);
-}
+    res.status(200).json(games);
+});
 
 function getGameById(_req, _res, id) {
     return;
 }
 
 function createNewGame(_req, _res) {
-    return;
-}
-
-function getAllGames(_req, _res) {
     return;
 }
 
