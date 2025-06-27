@@ -1,10 +1,11 @@
 const pool = require("./pool");
+const asyncHandler = require("express-async-handler");
 
 const validTables = ["platforms", "games"];
 
-async function getAll(table) {
+const getAll = asyncHandler(async (table) => {
     if (!validTables.includes(table)) {
-        throw new Error("Invalid table");
+        throw new Error("Can't access database!");
     }
     const query = {
         text: `SELECT * FROM ${table}`,
@@ -12,14 +13,15 @@ async function getAll(table) {
     };
     const { rows } = await pool.query(query);
     return rows;
-}
+});
 
 async function getById(id, table) {
     if (!validTables.includes(table)) {
-        throw new Error("Invalid table");
+        throw new Error("Can't access database!");
     }
+    const tableIdCol = table.slice(0, -1) + "_id";
     const query = {
-        text: `SELECT * FROM ${table} WHERE id = $1`,
+        text: `SELECT * FROM ${table} WHERE ${tableIdCol} = $1`,
         values: [id]
     };
     const { rows } = await pool.query(query);

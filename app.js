@@ -11,7 +11,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/games/", gameRouter);
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).send(err);
+});
 app.get("/", (_req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 app.listen(port, serverAddress, () => console.log(`Listening on ${serverAddress}:${port}`));

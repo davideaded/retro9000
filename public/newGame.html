@@ -1,0 +1,25 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Retro9000 new game</title>
+        <link rel="stylesheet" href="/style.css"/>
+        <script defer src="/script.js"></script>
+    </head>
+    <body>
+        <h1>Create new game</h1>
+        <form class="form">
+            <input name="name" placeholder="Name"/>
+            <select name="platform" id="platformSelection">
+                <option value="">Please choose an option</option>
+            </select>
+            <input name="genre" placeholder="Genre"/>
+            <input name="publisher" placeholder="Publisher"/>
+            <input name="year" type="number" min="1900" max="3000" placeholder="Year"/>
+            <input name="price" type="number" min="0" placeholder="Price"/>
+            <input type="file" accept="png" placeholder="image" />
+            <input class="submit-btn" type="submit">
+        </form>
+    </body>
+</html>
