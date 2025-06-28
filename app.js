@@ -2,11 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const gameRouter = require("./routes/gameRouter");
 const app = express();
+const cors = require('cors');
 const path = require('path');
 
 const serverAddress = process.env.ADDRESS || "127.0.0.1";
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 

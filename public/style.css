@@ -1,16 +1,59 @@
 :root {
-    --size: clamp(1rem, 1.5vw, 3rem);
+    --size: clamp(1rem, 1vw, 2rem);
     --green: #32a852;
     --lighter-green: #d5f2db;
     --darker-green: #2a8c45;
     --lighter-red: #f5abab;
+    --grey: #eee;
+    --darker-grey: #777;
 }
 
 body {
-    width: 90vw;
     font-size: var(--size);
     text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    background-color: var(--grey);
+    overflow-x: hidden;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--green);
+    color: white;
+    height: 10vh;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    font-size: max(var(--size), 1.5rem);
+}
+
+.nav-items a:link,:visited {
+    color: white;
+    text-decoration-color: hotpink;
+}
+
+.nav-items a {
+    padding: 0 1rem;
+    cursor: pointer;
+    text-decoration-thickness: 3px;
+}
+
+.nav-items a:hover {
+    text-decoration-color: white;
+    text-decoration-thickness: 5px;
+}
+
 .form {
     display: grid;
     grid-template-columns: 1fr;
@@ -26,10 +69,10 @@ input {
 }
 
 input:focus {
-  outline: none;
-  border: 2px solid #86bd90;
-  background-color: var(--lighter-green);
-  color: #000;
+    outline: none;
+    border: 2px solid #86bd90;
+    background-color: var(--lighter-green);
+    color: #000;
 }
 
 input:invalid {
@@ -53,4 +96,51 @@ input:invalid {
 .submit-btn:hover {
     background-color: var(--darker-green);
     cursor: pointer;
+}
+
+.all-games {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.game-card {
+    font-size: calc(var(--size) + .5rem);
+    max-width: 350px;
+    min-width: 300px;
+    background-color: white;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border: 2px solid black;
+    border-radius: 3%;
+    cursor: pointer;
+}
+
+.game-card h2 {
+    font-size: var(--size) + .5rem);
+    margin: .5rem 0;
+}
+
+.game-card p {
+    text-align: center;
+    margin: 0;
+    color: var(--darker-grey);
+}
+
+.game-card-inner {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.game-card:hover {
+    border-color: var(--darker-green);
+    box-shadow: 15px 15px 1px var(--lighter-green);
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border-radius: 3%;
 }
